@@ -1,0 +1,22 @@
+\frametitle {\textbf{Example II}}
+        \begin{block}{Bytecode:}
+                \begin{figure}[h!]
+\centering
+                \begin{lstlisting}[numbers=none,basicstyle=\scriptsize\ttfamily]
+0:  Load 0               12: Push unit
+1:  Store 2              13: Pop
+2:  Push unit            14: Goto -10
+3:  Pop                  15: Push unit
+4:  Load 2               16: Pop
+5:  Getfield next List   17: Load 2
+6:  Push null            18: Load 1
+7:  CmpNeq               19: Putfield next List
+8:  IfFalse 7            20: Push unit
+9:  Load 2               21: Return
+10: Getfield next List
+11: Store 2
+\end{lstlisting}
+        \caption{The List JBC-program.}
+        \label{fig:list-jbc}
+                \end{figure}
+        \end{block}

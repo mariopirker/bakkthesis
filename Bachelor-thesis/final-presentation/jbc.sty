@@ -1,0 +1,217 @@
+% stylefile jbc paper
+
+% misc
+\newcommand*{\tpkt}{\rlap{$\;$.}}
+\newcommand*{\tkom}{\rlap{$\;$,}}
+\newcommand*{\mraisebox}[1]{\raisebox{\height}{\ensuremath{#1}}}
+
+% definitions
+\newcommand{\defsym}{\mathrel{:=}}
+\newcommand{\defeqv}{\mathrel{:\Longleftrightarrow}}
+
+% generic definitions
+\newcommand*{\m}[1]{\mathsf{#1}}
+\DeclareMathOperator{\dom}{\m{dom}}
+\DeclareMathOperator{\range}{\m{rg}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand*{\true}{\mathtt{true}}
+\newcommand*{\false}{\mathtt{false}}
+\newcommand*{\bO}{O}
+
+% introduction
+\newcommand*{\RS}{\mathcal{R}}
+\newcommand*{\aprove}{\textsf{AProVE}}
+\newcommand*{\costa}{\textsf{COSTA}}
+\newcommand*{\julia}{\textsf{Julia}}
+\newcommand*{\speed}{\textsf{SPEED}}
+
+% jinja expressions
+\newcommand*{\expr}{\ensuremath{e}}
+\newcommand*{\expra}{\ensuremath{\expr_{1}}}
+\newcommand*{\exprb}{\ensuremath{e_{2}}}
+\newcommand*{\val}{\ensuremath{v}}
+\newcommand*{\var}{\ensuremath{x}}
+\newcommand*{\method}{\ensuremath{method}}
+\newcommand*{\assign}{\mathrel{=}}
+
+\newcommand*{\ts}[1]{\texttt{#1}}
+\newcommand*{\new}{\ts{new}}
+\newcommand*{\whilex}{\ts{while}}
+\newcommand*{\ifte}{\ts{if}}
+\newcommand*{\thenx}{\ts{then}}
+\newcommand*{\elsex}{\ts{else}}
+\newcommand*{\throw}{\ts{throw}}
+\newcommand*{\try}{\ts{try}}
+\newcommand*{\catch}{\ts{catch}}
+\newcommand*{\paren}[1]{\ts{(}#1\ts{)}}
+\newcommand*{\bracex}[1]{\ts{\{}#1\ts{\}}}
+\newcommand*{\Tname}{\ts{Type}}
+\newcommand*{\mynull}{\ts{null}}
+\newcommand*{\unit}{\ts{unit}}
+
+% abstraction
+\newcommand*{\AbsBool}{bool}
+\newcommand*{\AbsInt}{int}
+\newcommand*{\AbsClass}{\cname}
+\newcommand*{\Opstack}{opstack}
+\newcommand*{\Registers}{registers}
+\newcommand*{\Cname}{cname}
+\newcommand*{\Mname}{mname}
+\newcommand*{\PC}{pc}
+\newcommand*{\Ftable}{ftable}
+\newcommand*{\myframe}{frm}
+\newcommand*{\myframes}{frms}
+
+\DeclareMathOperator{\absloc}{\phi}
+%\DeclareMathOperator{\revabsloc}{\psi}
+\DeclareMathOperator{\Absloc}{\Phi}
+\DeclareMathOperator{\classof}{\m{cl}}
+\DeclareMathOperator{\ftof}{\m{ft}}
+\newcommand*{\opstk}{stk}
+\newcommand*{\loc}{loc}
+\newcommand*{\heap}{heap}
+\newcommand*{\cname}{cn}
+\newcommand*{\mname}{mn}
+\newcommand*{\fname}{fn}
+\newcommand*{\ftable}{ftable}
+\newcommand*{\Heap}{H}
+\newcommand*{\State}{S}
+
+\newcommand*{\rst}[2]{{#1}\!\restriction\!{#2}}
+\newcommand*{\instance}{\mathrel{\sqsubseteq}}
+\newcommand*{\abstraction}{\mathrel{\sqsupseteq}}
+\newcommand*{\subclass}{\mathrel{\preceq}}
+\newcommand*{\subclassp}{\mathrel{\prec}}
+\newcommand*{\isunshared}{iu}
+\newcommand*{\unshare}[2]{{#1} \not= {#2}}
+\newcommand*{\eqprob}{\mathrel{\overset{?}{=}}}
+
+\DeclareMathOperator{\abs}{\m{abs}}
+
+% stategraphs
+\newcommand*{\Nodes}{V}
+\newcommand*{\Edges}{E}
+\newcommand*{\Lab}{L}
+\newcommand*{\ELab}{E}
+\newcommand*{\LS}{\mathcal{L}}
+\newcommand*{\Succ}{Succ}
+\newcommand*{\nodes}[1]{\Nodes_{#1}}
+\newcommand*{\edges}[1]{\Edges_{#1}}
+\newcommand*{\lab}[1]{\Lab_{#1}}
+\newcommand*{\elab}[1]{\ELab_{#1}}
+\newcommand*{\suc}[1]{\Succ_{#1}}
+\DeclareMathOperator{\grt}{rt}
+\newcommand*{\statesize}[1]{\lVert #1 \rVert}
+\DeclareMathOperator{\depth}{dp}
+\newcommand*{\toss}[1]{\mathrel{\smash{\xrightarrow{#1}}}}
+\newcommand*{\foss}[1]{\mathrel{\smash{\xleftarrow{#1}}}}
+
+\newcommand*{\suci}[2][G]{%
+\mathrel{\overset{#2}{\rightharpoonup_{#1}}}%
+}
+\newcommand*{\predi}[2][G]{%
+\mathrel{\overset{#2}{\leftharpoonup}}%
+}
+\newcommand*{\reach}[1][G]{\suci{}}
+\newcommand*{\reachtr}[1][G]{\suci{\ast}}
+\newcommand*{\reachtir}[1][G]{\suci{+}}
+\newcommand*{\follows}[1][G]{\predi{}}
+\newcommand*{\followstr}[1][G]{\predi{\ast}}
+\newcommand*{\followstir}[1][G]{\predi{+}}
+\newcommand{\replaceNode}[3]{{#1[{#2}\xleftarrow{} {#3}]}}
+\newcommand{\graphUnion}{\cup}
+\newcommand{\subgraphAt}[2]{{#1}\!\restriction\!{#2}}
+
+% computation graph
+\newcommand*{\instrs}{instr\_of}
+\newcommand*{\cons}{\mathrel{\m{::}}}
+\newcommand*{\append}{\mathrel{\m{@}}}
+\newcommand*{\CGraph}{G}
+\newcommand*{\Program}{P}
+\newcommand*{\JVMstep}[3][\Program]{{#1} \colon {#2} \toss{\m{jvm}}_{1} {#3}} 
+\newcommand*{\JVMexec}[3][\Program]{{#1} \colon {#2} \toss{\m{jvm}} {#3}} 
+\newcommand*{\GCstep}[3][\CGraph]{{#1} \colon {#2} \reach[\CGraph] {#3}}
+\newcommand*{\GCexecir}[3][\CGraph]{{#1} \colon {#2} \reachtir[\CGraph] {#3}}
+ \newcommand*{\GCexec}[3][\CGraph]{{#1} \colon {#2} \reachtr[\CGraph] {#3}}
+\DeclareMathOperator{\rcjvm}{\m{rcjvm}}
+\DeclareMathOperator{\cc}{\m{cc}}
+
+% translation into trs
+\newcommand*{\tval}{\m{tval}}
+\newcommand*{\tobj}{\m{taddr}}
+\newcommand*{\tfrm}{\m{tfrm}}
+\newcommand*{\tfrs}{\m{tfrs}}
+\newcommand*{\tst}{\m{ts}}
+
+% op semantics
+\newcommand*{\jvmstate}[3]{(#2,#3)}
+\newcommand*{\absjvmstate}[4]{(#2,#3,#4)}
+\newcommand*{\jvmframe}[5]{(#1,#2,#3,#4,#5)}
+%\newcommand*{\method}{\ensuremath{M}}
+\newcommand*{\jvmframez}{\jvmframe{\opstk}{\loc}{\cname}{\mname}{\PC}}
+\newcommand*{\jvmstatez}{\jvmstate{\varnothing}{\heap}{\jvmframez \cons \myframes }}
+
+\newcommand*{\jvmframerel}[3]{#1\mathrel{:}  #2 \to #3}
+\newcommand*{\jvmrel}[3]{#1\mathrel{:}  #2 \to #3}
+\newcommand*{\jvmrelb}[3]{ \deduce{\to #3}{\vspace{-0.2em}#1\mathrel{:}  #2}  }
+
+\newcommand*{\jvmrelx}[3]{\infer[#1]{#3}{#2}}
+
+%% Jinja bytecode instructions
+\newcommand*{\num}{n}
+\newcommand*{\addr}{a}
+\newcommand*{\ttt}[1]{\texttt{#1}}
+\newcommand*{\jload}{\ensuremath{\ttt{Load}}}
+\newcommand*{\jstore}{\ensuremath{\ttt{Store}}}
+\newcommand*{\jpush}{\ensuremath{\ttt{Push}}}
+\newcommand*{\jnew}{\ensuremath{\ttt{New}}}
+\newcommand*{\jgetfield}{\ensuremath{\ttt{Getfield}}}
+\newcommand*{\jputfield}{\ensuremath{\ttt{Putfield}}}
+\newcommand*{\jcheckcast}{\ensuremath{\ttt{Checkcast}}}
+\newcommand*{\jinvoke}{\ensuremath{\ttt{Invoke}}}
+\newcommand*{\jreturn}{\ensuremath{\ttt{Return}}}
+\newcommand*{\jpop}{\ensuremath{\ttt{Pop}}}
+\newcommand*{\jiadd}{\ensuremath{\ttt{IAdd}}}
+\newcommand*{\jisub}{\ensuremath{\ttt{ISub}}}
+\newcommand*{\jimul}{\ensuremath{\ttt{IMul}}}
+\newcommand*{\jgoto}{\ensuremath{\ttt{Goto}}}
+\newcommand*{\jcmpeq}{\ensuremath{\ttt{CmpEq}}}
+\newcommand*{\jcmpneq}{\ensuremath{\ttt{CmpNeq}}}
+\newcommand*{\jcmpgeq}{\ensuremath{\ttt{CmpGeq}}}
+\newcommand*{\jiffalse}{\ensuremath{\ttt{IfFalse}}}
+\newcommand*{\jthrow}{\ensuremath{\ttt{Throw}}}
+\newcommand*{\jand}{\ensuremath{\ttt{BAnd}}}
+\newcommand*{\jor}{\ensuremath{\ttt{BOr}}}
+\newcommand*{\jnot}{\ensuremath{\ttt{BNot}}}
+
+% abstraction
+\newcommand*{\stkfamily}{Stk}
+\newcommand*{\locfamily}{Loc}
+\newcommand*{\nil}{\m{nil}}
+
+% rewriting
+\DeclareMathOperator{\TA}{\mathcal{T}}
+\newcommand*{\CS}{\mathcal{C}}
+\newcommand*{\VS}{\mathcal{V}}
+\newcommand*{\FS}{\mathcal{F}}
+\newcommand*{\GS}{\mathcal{G}}
+\DeclareMathOperator{\Var}{\mathcal{V}\m{ar}}
+\newcommand*{\rew}{\mathrel{\to}}
+\newcommand*{\rsrew}[1][\RS]{\mathrel{\rew_{#1}}}
+\newcommand*{\rssrew}{\mathrel{\rew^\ast}}
+\newcommand*{\rstrew}{\mathrel{\rew^+}}
+\newcommand*{\rsbrew}{\mathrel{\rew^{!}}}
+\newcommand*{\rsnrew}[1]{\rew^{#1}}
+\newcommand*{\hole}{\Box}
+\newcommand*{\size}[1]{\lvert{#1}\rvert}
+
+\newcommand*{\theory}{T}
+\newcommand*{\proves}{\mathrel{\vdash}}
+\DeclareMathOperator{\corrrule}{\m{rule}}
+\newcommand*{\constraint}[3]{\mathrel{{#1} \to {#2} \llbracket {#3} \rrbracket}}
+\newcommand*{\funsym}[1]{\m{f}_{#1}}
+%\newcommand*{\joinable}{\mathrel{\downarrow}}
+\newcommand*{\joinable}{\mathrel{\Join}}
+\DeclareMathOperator{\rctrs}{\m{rctrs}}
+\DeclareMathOperator{\dheight}{\m{dh}}

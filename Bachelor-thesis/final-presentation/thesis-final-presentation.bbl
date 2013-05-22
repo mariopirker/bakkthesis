@@ -1,0 +1,9 @@
+\begin{thebibliography}{1}
+
+\bibitem{paper-uibk}
+G.~Moser and M.~Schaper.
+\newblock A complexity preserving transformation from jinja bytecode to rewrite
+  systems.
+\newblock {\em CoRR, cs/PL/1204.1568}, 2012.
+
+\end{thebibliography}
